@@ -1,0 +1,27 @@
+双向链表list
+
+push_back();//尾插法，尾部插入
+size();//大小
+
+遍历list
+	list<int>::iterator it = l.begin();
+	while(it != l.end())
+	{
+		cout<<*it<<" ";
+		it++;
+	}
+	
+	it++;//正确
+	it++;
+	
+	it = it +5;//错误，不支持随机访问
+
+	l.insert(it, 100);//问题：100加在it指的位置的前面还是后面？
+	//插在当前位置，该位置的数据和后面的数据，都向后移
+	l.clean();//清空
+	l.erase(begin, end);//区间删除
+	
+	l.erase(pos);//删除该位置的元素，返回下一个元素的位置
+	
+	//删除所有值为100的元素
+	l.remove(100);

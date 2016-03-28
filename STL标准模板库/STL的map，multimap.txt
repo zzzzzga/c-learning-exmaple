@@ -1,0 +1,46 @@
+map是键值对(key, value);
+key唯一
+
+multimap key不唯一
+
+按一定的规则对key排序存储
+
+map元素的增删改查
+
+map<int, string> map1;
+//添加
+map1.insert(pair<int, string>(1,"teacher1"));
+map1.insert(make_pair(2, "teacher2"))
+map1.insert(map<int, string>::value_type(3, "teacher3"));
+//使用insert添加，若key存在则不添加
+
+map1[4] = "teacher4";
+//使用[]=，若key存在，则覆盖他的value
+
+//遍历
+for(map<int, string>::iterator it = map1.begin(); it != map1.end(); it++)
+{
+	cout<<it->first<<" "<<it->second;
+}
+
+while(!map1.empty())
+{
+	
+}
+erase(it);
+
+
+map查找
+find(key);//返回迭代器位置
+if(it == map.end())
+{
+	//没找到
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+priority_queue
+最大值优先级队列和最小值优先级队列
+
+
+priority_queue<int> p1;//默认是，最大值优先级
+==> priority_queue<int, vector<int>, less<int>> p2;//默认
+
+priority_queue<int, vector<int>, greater<int>> p3;//最小值优先级队列
+
+p1.push(10);
+p1.push(30);//尾部插入
+while(p1.size()!=0)
+{
+	cout<<p1.top()<<" ";	//获取头部元素
+	p1.pop();//删除头部元素
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

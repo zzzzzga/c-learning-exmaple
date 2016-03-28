@@ -1,0 +1,19 @@
+Õ»stack
+
+	stack<int> st;
+	for(int i=0;i <10;i++)
+	{
+		st.push(i);
+	}
+	while(!s.empty)
+	{
+		int tmp = st.top();//·µ»ØÕ»¶¥ÔªËØ
+		cout<<tmp<<endl;
+		st.pop();//É¾³ýÕ»¶¥ÔªËØ
+	}
+
+
+
+
+
+

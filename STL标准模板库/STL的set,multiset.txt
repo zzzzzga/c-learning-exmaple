@@ -1,0 +1,73 @@
+红黑树的变体实现的,红黑树是平衡二叉树
+set/multiset
+
+1.集合，元素唯一 自动排序 不能按照数组形式插入
+	set<int> s;
+	s.inset(1000);//插入
+	
+	//遍历
+	for(set<int>::iterator it = s.begin(); it != s.end(); it++)
+	{
+		cout<<*it<" ";
+	}
+	//自动按从小到大排序
+	
+	while(!s.empty())
+	{
+		//set<int>::iterator it = s.begin();
+		s.erase(s.begin());
+	}
+
+set<int> s1;==>set<int ,less<int>> s1;	//从小到大
+set<int, greater<int>> s2;//从大到小
+
+对于基础的数据类型，可以这样使用，但对于复杂数据类型，这么实现？
+
+仿函数
+struct FuncStudent
+{
+	bool operator()(const Student &s1, const Student &s2)
+	{
+		if(s1.age < s2.age)
+		{
+			return true;		//第一个参数小，返回真，从小到大
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
+
+如何知道insert()有没有插入成功
+通过返回值，来判断是否插入成功
+insert返回对组pair对组//一般有一个迭代器和布尔值
+pair.first;
+pair.second;
+
+set查找
+find(elem);//查找elem，返回elem的迭代器位置
+count(elem);//elem的出现的次数
+lower_bound(elem);//大于等于5的迭代器位置
+upper_bound(elem);
+equal_range(elem);
+//返回pair<iterator,iterator>第一个迭代器值向第一个大于等于elem，第二个迭代器指向大于elem
+
+
+multiset
+	insert()
+	erase()
+	
+
+
+
+
+
+
+
+
+
+
+
+
+

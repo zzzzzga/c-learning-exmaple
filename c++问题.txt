@@ -1,0 +1,29 @@
+1.继承的实现原理
+2.封装的实现原理
+3.多态的实现原理
+vptr指针
+
+
+4.对象模型的实现原理
+
+成员数据：static，nonstatic
+成员函数：static, nonstatic, virtual（+4）
+
+
+struct 数据结构
+
+static成员数据不放在struct中，virtual函数 会在struct中添加一个vptr指针
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,81 @@
+vector是用动态数组管理的容器
+在vector的尾部删除和插入操作比较快，在vector的中间和头部删除和插入操作比较慢
+容器元素的存放是按值复制的，所以对象元素必须可以拷贝，既有拷贝构造函数
+
+vector初始化
+	vector<int> v1;
+	
+	v1.size();//vector的大小
+	v1.push_back(10);//	在数组尾部插入
+	
+	while(v1.size() > 0)
+	{
+		v1.back();	//获取尾部元素
+		v1.pop_back();//删除尾部元素
+		v1.front();//获取头部元素
+	}
+	
+	//修改头部元素
+	v1.front() = 11;//可以修改头部元素
+	//函数返回值当左值，应该返回元素本身，即引用
+	v1.back() = 100;//修改尾部的元素
+
+vector(begin, end);
+vector(num, elem);
+vector(vector&)
+//使用数组方式对vector进行修改时，必须确认分配内存
+
+
+vector遍历
+	1.数组方式
+	for(int i = 0; i<v.size(); i++)
+	{
+		cout<<v[i]<<" " ; 
+	}
+	2.使用迭代器
+	for(vector<int>::iterator it = v.begin(); it != v.end(); it++)
+	{
+		cout<<*it<<" ";
+	}
+
+迭代器是一个"可遍历STL容器内的全部或部分元素"的对象
+迭代器指出容器中的特定位置
+迭代器就如同一个指针
+迭代器提供对一个容器中的对象的访问方法，并且可以定义了容器中对象的范围
+
+迭代器分为：
+	输入迭代器
+	输出迭代器
+	正向
+	双向
+	随机访问迭代器
+
+begin()表示第一个，end()表示最后一个的后面
+rbegin()表示最后一个，rend()表示第一个的前面
+
+reverse_iterator  rit逆向迭代器，rit++
+
+vector 删除
+	1.区间删除
+	v.erase(v1.begin(),v1.begin()+3);//删除3个
+	2.单个元素删除
+	v.erase(v1.begin());//删除头元素
+	3.根据值删除
+	for(vector<int>::iterator it = v.begin(); it != v.end();	)
+	{
+		if(*it == 2)
+		{
+			it = v.erase(it);
+		}
+		else
+		{
+			it++;
+		}
+	}
+
+vector头部插入尾部插入
+	v.insert(v1.begin(), 100);
+	v.insert(v1.end(), 200);
+
+
+

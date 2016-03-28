@@ -1,0 +1,24 @@
+谓词指，返回值为bool 类型的函数或函数对象
+
+函数对象， 值重载()操作符的类对象
+
+一元谓词
+find_if()
+for_each()
+
+
+二元谓词
+transform(v1.begin(), v1.end(), v2.begin(), v3.begin(), FunObject<int>());
+
+bind1st()	二元谓词的参数绑定
+bind2nd()
+not1()
+not2()
+
+
+
+
+
+
+
+

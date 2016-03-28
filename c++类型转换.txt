@@ -1,0 +1,51 @@
+c++类型转换
+	c风格的强制类型转换
+	TYPE b = (TYPE)a;
+	C++风格的类型转换提供了4种类型
+	static_cast 		静态类型转换.如int转换成char
+	reinterpret_cast 	重新解释类型
+	dynamic_cast		动态类型转换.如子类和父类之间的多态类型转换.
+	const_cast			const类型转换
+
+
+使用例子
+double dpi = 3.14;
+int num1 = (int)dpi;//c风格
+int num2 = static_cast<int>(dpi);//c++风格 
+//static_cast在c++编译器在编译时进行类型检查
+int num3 = dpi;//c语言中隐式转换的地方均可使用static_cast
+
+char *p1 = "hello";
+int *p2 = NULL;
+p2 = reinterpret_cast<int*>(p1);//这个c++编译器不会进行类型检查,就进行强制转换
+
+//父类对象==>子类对象,向下转型
+dynamic_cast<>();
+
+const_cast	//去除变量的只读属性
+void print(const char * p)
+{
+	char* p1 = NULL;
+	p1 = const_cast<char*>(p);	//程序员必须知道p指向的内存空间可以修改(比如全局区的字符串常量不可修改)
+	p1[0] = 'Z';
+	cout<<p1<<endl;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

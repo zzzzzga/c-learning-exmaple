@@ -1,0 +1,37 @@
+malloc free		是c中的函数
+new delete		是c++的操作符
+
+使用形式
+new 类型（常量）
+new 类型[表达式]
+
+new 基础类型变量 分配数组变量 分配类对象
+
+int *p = new int;	//分配基础类型
+*p = 20;
+int *p2 = new int(30); ==> //分配并初始化
+
+delete p;	//基础类型变量释放内存
+delete p2;
+
+
+int *pArray = new int[10];
+
+delete [] pArray;//数组的内存空间释放
+
+
+Test *pT = new Test(10);	//new 会自动调用构造函数，而malloc不会
+delete pT;				//delete 会自动调用析构函数，而free不会
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+#include<fstream>
+
+ofstream 用来写文件
+ifstream 用来读文件
+fstream 输入输入文件
+
+ofstream fout("文件路径");
+fout<<"hello"<<endl;
+fout.close();
+
+char buf;
+ifstream fin("文件路径");
+fin.get(char);
+fin.close();
+
+
+ofstream fout("路劲",ios::out);
+
+ios::out 	一输出方式打开文件，若存在则覆盖原文件
+ios::in		以输入方式打开文件
+ios::app	以输出方式打开文件，数据在文件末尾追加
+ios::ate 打开一个已有文件，定位到文件末尾写入
+ios::binary	以二进制读取文件
+
+!fout	//为真，文件没打开
+
+
+
+
+

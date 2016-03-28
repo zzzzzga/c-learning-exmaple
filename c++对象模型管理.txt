@@ -1,0 +1,94 @@
+面向对象的实现
+c++类的实现
+
+将数据和函数分开
+
+class Test
+{
+private:
+	int m1;
+public:
+	Test(int i)
+	{
+		m1 = i;	
+	}	
+	int getI()
+	{
+		return m1;
+	}
+	static void Print()
+	{
+		printf("This is class Test\n");
+	}
+};
+
+Test a(10);
+a.getI();
+Test::Print();
+
+===================================================================
+
+他的实现本质
+struct Test
+{
+	int m1;	
+};
+void Test_initialize(Test *pThis, int i)
+{
+	pThis->m1 = i;
+}
+int Test_getI(Test *pThis)
+{
+	return pThis->m1;
+}
+void Test_Print()
+{
+	printf("This is class Test\n");
+}
+Test a;
+Test_initialize(&a, 10);
+Test_getI(&a);
+Test_Print();
+
+
+this指针
+在每个成员函数中，c++编译器都会将一个this指针作为参数
+c++编译器的实现
+成员函数
+void func()
+{
+	
+}
+==>
+void func(ClassName * const this)
+
+成员函数
+void func() const	//这个const修饰的是谁，修饰的是 this指针
+{
+	
+}
+==> 
+void func(const ClassName * const this)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+使用编译器对iostream对象进行查看
+			 ios
+			 /  \
+			/    \
+		istream ostream
+		  /  \    /  \
+		 /    \  /    \
+	ifstream iostream  ofstream
+				|
+				|
+			fstream
+			
+标准输入流 cin
+cin.get() //一次只能读取一个字符
+cin.get(一个参数)//读取一个字符
+cin.get(三个参数)//可以读取字符串
+cin.getline()//读取一行
+cin.ignore();
+cin.peek();
+cin.putback();
+
+char mybuf[1024];
+cin>>mybuf;	//遇到空格停止接收
+
+空格不接收，但是不会被吃掉，仍在缓冲区存在
+若不想接收空格使用cin.ignore(吃掉的字符数);//吃掉空格
+
+peek(),读一下缓冲区，看缓冲区是否有数据，有，返回第一个字符的asc码，否则程序阻塞
+putback(),将读出的数据，返回到缓冲区中
+putback(),将读出的数据，返回到缓冲区中
+
+
+
+标准输入cout
+
+cout.put(char);//输出一个字符
+cout.flush();//刷新缓冲区
+cout.write();
+
+cout.width(int);	//输出宽度
+cout.fill(char);	//宽度不够，用char填充
+cout.setf();
+
+cout.setf(ios::showbase);
+使用控制符
+需要头文件<iomapip>
+dec	十进制
+hex 十六进制
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+函数类型
+typedef type (function)(paramter list);//定义类型
+typedef type (*functionType)(paramter list);//定义类型
+type (*functionPtr)(Paramter list);//定义变量
+
+函数指针 做函数参数 的两种写法
+例一：
+int func(int (*ptrFunc)(int a, int b))
+{
+	ptrFunc(2,3);
+	return 0;
+}
+例二：
+typedef int (*MyFunc)(int a, int b);
+int func(MyFunc myFunc)
+{
+	myFunc(2,3);
+	return 0;
+}
+
+函数指针类型：做了什么工作？
+函数指针规定了函数的 返回值 和 参数列表（函数指针类型起到的作用：把函数的参数、返回值提前做了约定）
+
+函数指针的正向调用
+typedef int (*FunctionPtr)(int a, int b);//定义函数指针类型
+
+HINSTANCE hInstance
+
+hInstance=::LoadLibrary("dll路径"); 或VERIFY(hInstance=::LoadLibrary("dll路径"));
+//找函数的入口地址
+pFunction = (FunctionPtr)::GetProcAddress(hInstance,"dll中的函数名");或VERIFY(pFunction = (FunctionPtr)::GetProcAddress(hInstance,"dll中的函数名"));
+//函数调用
+pFunction(2,3);
+
+
+1.在动态库内部
+	需要提前定义好一套接口
+2.在动态库的外部
+	发布你的一套接口协议
+3.厂家 根据你的 .h实现函数原型
+4.把厂家函数的入口地址 注入到框架中
+5.在框架中，回调第三方的任务
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hanshu

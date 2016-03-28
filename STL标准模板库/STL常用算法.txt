@@ -1,0 +1,25 @@
+adjacent_find() binary_search()
+count_if() equal_range(), find(), find_if()
+
+merge(),sort(),random_shuffle(),reverse()
+
+copy(), replace()
+replace_if(),swap()
+
+accumulate()
+
+set_union(),set_intersection()
+set_difference()
+
+for_each(), transform()
+
+
+
+
+
+
+
+
+
+
+

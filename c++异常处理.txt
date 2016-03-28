@@ -1,0 +1,48 @@
+抛异常的程序段
+void Fun()
+{
+	...
+	throw x;//按类型 抛异常
+	...
+}
+
+异常的捕获
+try
+{
+
+}
+catch(int e)	//整数异常
+{
+}
+catch(...)	//其他的异常
+{
+}
+
+若有异常未处理,程序会当掉
+捕获异常后可以不处理,继续向外抛]
+异常是跨函数的
+异常是按类型catch的(异常是严格匹配类型)
+throw 'H'	catch(int e)捕获不到
+
+栈解旋
+try{}内的函数分配的栈空间,会在发生异常后自动调用析构函数释放
+异常机制可以跨越栈模型
+
+函数异常接口声明
+void func() throw (A, B, C);该函数只能抛A,B,C或他们的子类类型的异常
+void func();//可以抛出任意类型的异常
+void func() throw();//不会抛任何异常
+
+当异常类型为类对象时
+throw Exception();//调用无参构造
+
+使用引用捕获异常
+catch(Exception &e)
+
+
+c++提供了一套标准的异常库
+#include<stdexcept>
+总的标准父类
+exception
+我们可能会从exception继承，自定义异常类
+exception中由一个虚函数const char* what()

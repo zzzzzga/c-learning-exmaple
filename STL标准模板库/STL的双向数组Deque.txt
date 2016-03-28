@@ -1,0 +1,28 @@
+双端数组deque
+
+push_back()
+pop_back()
+push_front()
+pop_front()
+
+遍历
+	for(deque<int>::iterator it = d.begin(); it != d.end(); it++)
+	{
+		cout<<*it<<endl;
+	}
+
+根据值查找数组下标
+	deque<int>::iterator it = find(d.begin(), d.end(), 33);
+	if(it != d.end())
+	{
+		distance(d.end(),it);
+	}
+
+
+
+
+
+
+
+
+

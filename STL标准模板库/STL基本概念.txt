@@ -1,0 +1,53 @@
+13个头文件
+<algorithm>
+<deque>
+<functional>
+<iterator>
+<vector>
+<list>
+<map>
+<memory>
+<numeric>
+<queue>
+<set>
+<stack>
+<utility>
+
+六大组件
+	容器
+	算法
+	迭代器
+	仿函数
+	适配器
+	空间配置器
+
+
+容器的概念
+	把元素拷贝到容器中
+	iterator 迭代器
+	
+	vector<int> v1;
+	v1.push_back(1);
+	v1.push_back(2);
+	v1.push_back(5);
+	for(vector<int>::iterator it = v1.begin(); it != v1.end(); it++)
+	{
+		cout<<*it<<endl;
+	}
+
+数据结构： 研究节点和节点的关系
+	集合
+	
+	序列容器
+		vector 数组
+		Deque	可以从头尾修改的数组
+		list 	双向链表
+	关联容器
+		set/multiset 集合
+		map/multimap 映射
+
+算法常用的三个头文件
+<algorithm><numeric><functional>
+
+
+

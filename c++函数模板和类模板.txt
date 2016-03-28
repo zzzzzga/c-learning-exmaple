@@ -1,0 +1,123 @@
+函数模板(泛型编程)
+template <typename T1,typename T2>//函数模板中有多个类型
+template <typename T>
+void myswap(T &a, T &b)
+{
+	T c;
+	c = a;
+	a = b;
+	b = c;
+}
+
+函数模板的调用
+//显示类型 调用
+//自动类型 推导
+int a=10, b=20;
+myswap<int>(a, b);//显示类型调用
+
+myswap(a, b); 	//自动类型推导(不推荐，不常用)
+
+
+函数模板遇上函数重载
+template <typename T>
+void myswap(T &a, T &b);//函数模板严格的进行类型匹配，不会进行类型转换
+
+void myswap(int &a, char &b);//普通函数，可以进行隐式的类型转化
+
+若普通函数和函数模板都符合调用规则，优先调用普通函数
+若想调用模板函数，必须显示调用,使用<>
+如果函数模板能产生更好的匹配，调用函数模板
+函数模板严格匹配参数类型，不会进行隐式转换
+
+函数模板机制结论：
+	编译器并不是把函数模板处理成能够处理任意类的函数
+	编译器从函数模板通过具体类型产生不同的函数
+	编译器会对函数模板进行  两次编译
+		在声明的地方对函数模板代码本身进行编译；在调用的地方对参数替换后的代码进行编译
+
+		
+类模板
+
+定义
+template <typename T>
+class A
+{
+public:
+	A(T t)
+	{
+		this->t = t;
+	}
+private:
+	T t;
+};
+
+使用
+A<int> a(100);	
+
+做函数模板
+void func(A<int> &a)
+{
+}
+	
+模板类派生子类
+class B : public A<int>
+{
+};
+
+模板类派生模板类
+template <typename T>
+class C : public A<T>
+{
+};
+
+类模板的成员函数写在类的外部
+template <template T>
+void A<T>::A()
+{
+}
+
+类模板的友元函数
+friend void friendfunc<T>(A &a);//在类中声明友元函数，在类模板中声明友元函数加<T>
+
+template <typename T>
+void friendfunc(A<T> &a)
+{
+}
+
+不要滥用友元函数
+模板类使用友元函数实现 非<< >>运算符重载
+template <typename T>
+class A;
+template <typename T>
+A<T> mySub(A<T> &a1, A<T> &a2);
+
+template <typename T>
+class A
+{
+	friend A mySub<T>(A &a1, A &a2);
+};
+
+把h和cpp分开
+必须包含cpp头文件
+
+类模板一般将类函数的实现写在类的里面
+
+类模板中的static关键字
+对static 成员初始化
+template <typename T> int ClassName<T>::count = 0;
+
+每个类模板生成的类，各自使用一个静态成员
+
+注：
+模板类的友元函数写在类内部
+
+
+
+
+
+
+
+
+
+
+

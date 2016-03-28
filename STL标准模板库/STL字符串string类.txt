@@ -1,0 +1,93 @@
+头文件
+<string>
+
+string 的构造函数
+
+	string str = "aaa";	//string(const char* p)
+	string str2("bbb");
+
+	string s3 = str2;//string(const string &s);
+
+	string s4(10, 'a');//string(int len,char c);
+
+string的遍历
+	1.数组方式
+	for(int i=0; i<str.length(); i++)
+	{
+		cout<<str[i]<<" ";
+	}
+	2.迭代器
+	for(string::iterator it = str.begin(); it != str.end(); it++)
+	{
+		cout<<*it<<" ";
+	}
+	3.at();//跟数组的区别，会报异常
+	for(int i = 0; i<s.length(); i++)
+	{
+		cout<<s.at(i)<<" ";
+	}
+	
+string和字符指针转换
+	1.string==>char*
+	char *p = s.c_str();
+	
+	2.char* ==>string
+	string s = "aaaa";
+
+	3.string 拷贝到 buf
+	s.copy(buf, num, pos);//num几个字符，pos从哪里开始拷贝
+	//只会拷贝三个字符，不会转成c风格字符串
+	
+字符串连接
+	string s1 = "aaa";
+	string s2 = "bbb";
+	s1 = s1 + s2;
+	或
+	s1.append(s2);
+	
+字符串查找和替换
+	1.find有7个重载函数(没找到返回-1)
+	int find(char c, int pos = 0);//从pos位置开始查找c字符
+	int find(char* c, int pos = 0);//从pos位置开始查找c字符串
+	
+	//求字符串出现的次数 每一次出现的数组下标
+	int offsetindex = s.find("abc",0);
+	while(offsetindex != string::npos)
+	{
+		cout<<offsetindex<<" ";
+		offsetindex ++;
+		offsetindex = s.find("abc", offsetindex);
+	}
+	2.替换replace
+	replace(int pos, int n, char*p);//从pos位置删除3个字符，替换成p
+	//添加的字符数和删除的字符数不必一致
+	
+string区间删除和插入
+	使用算法
+	string::iterator it = find(s.begin(),s.end(), 'l');
+	if(it != s1.end())
+	{
+		s1.erase(it);	//删除该字符，并把他返回erase(int pos, int num=npos)
+	}
+	1.删除
+	//全部删除
+	s.erase(s.begin(), s.end());
+	或
+	s.erase(0,s.length());
+	
+	2.插入
+	insert(int pos, char* p);//在pos位置，插入p
+	
+	
+将string全部转换成大写或小写
+	transform(s.begin(), s.end(), s.begin(), toupper);
+	//从s的开始到s的结束的所有字符，都转化成大写，并写到s.begin()
+	transform(s.begin(), s.end(), s.begin(), tolower);
+	
+	
+	
+	
+	
+	
+	
+	
